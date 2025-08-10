@@ -34,7 +34,7 @@ export CF_Email="${CF_AccountEmail}"
 
 # گرفتن گواهی SSL از کلادفلر
 log "Issuing SSL certificate for $CF_Domain and *.$CF_Domain..."
-~/.acme.sh/acme.sh --issue --dns dns_cf -d "${CF_Domain}" -d "*.${CF_Domain}" --log --force || { err "Certificate issuance failed"; exit 1; }
+~/.acme.sh/acme.sh --issue --dns dns_cf -d "${CF_Domain}" -d "*.${CF_Domain}" --keylength 2048 --log --force || { err "Certificate issuance failed"; exit 1; }
 
 # نصب گواهی در مسیر مشخص
 domainCertPath="${certPath}/${CF_Domain}"
